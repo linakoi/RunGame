@@ -12,6 +12,7 @@ public class DeadWallScript : MonoBehaviour
     public float speed;
     //オブジェクトの横移動の最大距離
     public float max_x;
+    public float min_x;
 
     private int init_direction;
 
@@ -47,7 +48,7 @@ public class DeadWallScript : MonoBehaviour
         this.gameObject.transform.Translate(speed, 0, 0);
 
         //Transformのxの値が一定値を超えたときに向きを反対にする
-        if (this.gameObject.transform.position.x > max_x || this.gameObject.transform.position.x < (-max_x))
+        if (this.gameObject.transform.position.x > max_x || this.gameObject.transform.position.x < min_x)
         {
             speed *= -1.0f;
             Debug.Log(speed);

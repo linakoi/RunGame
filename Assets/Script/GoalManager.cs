@@ -19,6 +19,9 @@ public class GoalManager : MonoBehaviour
     //Goalしたかどうか判定する
     public bool isGoal = false;
 
+    //次のゲームの名前
+    public string nextGame;
+
     void Update()
     {
         //Goalした後で画面をクリックされたとき
@@ -34,7 +37,7 @@ public class GoalManager : MonoBehaviour
         {
             isGoal = true;
 
-            text.GetComponent<Text>().text = "Goal!!!\nClick to Restart";
+            text.GetComponent<Text>().text = "Goal!!!\nClick to NextStage";
             text.SetActive(true);
 
             enemy.GetComponent<NavMeshAgent>().speed = 0;
@@ -45,6 +48,6 @@ public class GoalManager : MonoBehaviour
  
     private void Restart()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(nextGame);
     }
 }
